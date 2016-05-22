@@ -134,7 +134,7 @@ assign
 
 declaration
     : type declaration_body
-        {$$ = new yy.AstNode('TYPE-DECL', [$1, $2]);}
+        {$$ = new yy.AstNode('TYPE-DECL', [$1, new yy.AstNode('DECL-BODY', [].concat.apply([], $2))]);}
     ;
 
 declaration_body

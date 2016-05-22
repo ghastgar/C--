@@ -42,8 +42,9 @@ function preProcessAST(T) {
         case EL.INTEGER: T.children[0] = parseInt(T.getChild(0)); break;
         case EL.REAL:    T.children[0] = parseFloat(T.getChild(0)); break;
         case 'TYPE-DECL':
-            for(var i = 0; i < T.getChild(1).length; ++i) {
-                preProcessAST(T.getChild(1)[i]);
+            var block = T.getChild(1);
+            for(var i = 0; i < block.getChildCount(); ++i) {
+                preProcessAST(block.getChild(i));
             }
     }
     var n = T.getChildCount();
@@ -79,10 +80,8 @@ function executeInstruction(T) {
         case 'TYPE-DECL':
             var type = T.getChild(0);
             var decl = T.getChild(1);
-            var declNum = decl.length;
-            console.log(declNum);
-            for (var i = 0; i < declNum; ++i) {
-                var atom = decl[i];
+            for (var i = 0; i < decl.getChildCount(); ++i) {
+                var atom = decl.getChild(i);
                 var varName = atom.getChild(0);
                 if (atom.getType() === 'ASSIGN') {
                     value = evaluateExpression(atom.getChild(1));
