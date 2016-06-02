@@ -9,25 +9,27 @@ module.exports = class Ast
             CHAR: 'CHAR'
             BOOL: 'BOOL'
             FUNCTION: 'FUNCTION'
-            CIN: 'CIN'
+            CIN: 'CIN' # Doesn't appear in the grammar as a type cause
+                       # we don't really want it to appear explicitly anywhere
+                       # (as a type)
         })
 
     @OPERATORS: Object.freeze({
-            PLUS: 'PLUS'
-            MINUS: 'MINUS'
-            UPLUS: 'UPLUS'
-            UMINUS: 'UMINUS'
-            MUL: 'MUL'
-            DIV: 'DIV'
-            DOUBLE_DIV: 'DOUBLE_DIV'
-            INT_DIV: 'INT_DIV'
-            MOD: 'MOD'
-            OR: 'OR'
-            AND: 'AND'
-            NOT: 'NOT'
-            ASSIGN: 'ASSIGN'
-            POST_INC: 'POST_INC'
-            POST_DEC: 'POST_DEC'
+            PLUS: '+'
+            MINUS: '-'
+            UPLUS: 'u+'
+            UMINUS: 'u-'
+            MUL: '*'
+            DIV: '/'
+            DOUBLE_DIV: 'd/'
+            INT_DIV: 'i/'
+            MOD: '%'
+            OR: '||'
+            AND: '&&'
+            NOT: '!'
+            ASSIGN: '='
+            POST_INC: 'a++'
+            POST_DEC: 'a--'
             LT: '<'
             GT: '>'
             LTE: '<='
@@ -96,6 +98,12 @@ module.exports = class Ast
     constructor: (@type, @children) ->
         assert (typeof @type is "string")
         assert Array.isArray(@children)
+
+    @copyOf: (ast) ->
+        new Ast(ast.type,
+            for child in ast.children
+                if child instanceof Ast then Ast.copyOf(child) else child 
+        )
 
     getType: -> @type
 

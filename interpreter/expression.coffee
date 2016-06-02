@@ -29,6 +29,9 @@ module.exports = @
         when OPERATORS.DOUBLE_DIV
             e(T.left()) / e(T.right())
         when OPERATORS.MOD
+            den = e(T.right())
+            if den is 0
+                throw error.MODULO_BY_ZERO
             e(T.left()) % e(T.right())
         when OPERATORS.UPLUS
             e(T.child())
@@ -133,7 +136,6 @@ module.exports = @
                 word = io.getWord(io.STDIN)
                 if word?
                     { leftover, value } = valueParser.parseInputWord word, inputItem.getType()
-                    console.log ({leftover, value})
                     if value?
                         if leftover.length > 0
                             io.unshiftWord(io.STDIN, leftover)
