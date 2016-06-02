@@ -5,7 +5,7 @@
     codeMirror = CodeMirror((function(elt) {
       return $("#code").replaceWith(elt);
     }), {
-      value: "#include <iostream>\nusing namespace std;\nint main() {\n\n}",
+      value: "#include <iostream>\nusing namespace std;\n\nint main() {\n  \n}",
       theme: "material"
     });
     w = null;
