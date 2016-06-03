@@ -1742,92 +1742,98 @@ case 17:return 69
 break;
 case 18:return 71
 break;
-case 19:return 53
+case 19:return 70
 break;
-case 20:return 50
+case 20:return 69
 break;
-case 21:return 73
+case 21:return 71
 break;
-case 22:return 72
+case 22:return 53
 break;
-case 23:return 12
+case 23:return 50
 break;
-case 24:return 10
+case 24:return 73
 break;
-case 25:return 74
+case 25:return 72
 break;
-case 26:return 56
+case 26:return 12
 break;
-case 27:return 16
+case 27:return 10
 break;
-case 28:return 22
+case 28:return 74
 break;
-case 29:return 24
+case 29:return 56
 break;
-case 30:return 19
+case 30:return 16
 break;
-case 31:return 21
+case 31:return 22
 break;
-case 32:return 25
+case 32:return 24
 break;
-case 33:return 8
+case 33:return 19
 break;
-case 34:return 37
+case 34:return 21
 break;
-case 35:return 48
+case 35:return 25
 break;
-case 36:return 51
+case 36:return 8
 break;
-case 37:return 54
+case 37:return 37
 break;
-case 38:return 58
+case 38:return 48
 break;
-case 39:return 59
+case 39:return 51
 break;
-case 40:return 60
+case 40:return 54
 break;
-case 41:return 61
+case 41:return 58
 break;
-case 42:return 62
+case 42:return 59
 break;
-case 43:return 63
+case 43:return 60
 break;
-case 44:return 9
+case 44:return 61
 break;
-case 45:return 13
+case 45:return 62
 break;
-case 46:return 14
+case 46:return 63
 break;
-case 47:return 15
+case 47:return 9
 break;
-case 48:return 41
+case 48:return 13
 break;
-case 49:return 46
+case 49:return 14
 break;
-case 50:return 44
+case 50:return 15
 break;
-case 51:return 45
+case 51:return 41
 break;
-case 52:return 79
+case 52:return 46
 break;
-case 53:return 76
+case 53:return 44
 break;
-case 54:return 77
+case 54:return 45
 break;
-case 55:return 78
+case 55:return 79
 break;
-case 56:return 80
+case 56:return 76
 break;
-case 57:return 88
+case 57:return 77
 break;
-case 58:return 6
+case 58:return 78
 break;
-case 59:return 'INVALID'
+case 59:return 80
+break;
+case 60:return 88
+break;
+case 61:return 6
+break;
+case 62:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\/\/.*)/,/^(?:\/\*(.|\n|\r)*?\*\/)/,/^(?:\s+)/,/^(?:\+\+)/,/^(?:--)/,/^(?:\+=)/,/^(?:-=)/,/^(?:\*=)/,/^(?:\/=)/,/^(?:%=)/,/^(?:\*)/,/^(?:\/)/,/^(?:-)/,/^(?:%)/,/^(?:\+)/,/^(?:!=)/,/^(?:or|\|\|)/,/^(?:and|&&)/,/^(?:not|!)/,/^(?:<<)/,/^(?:>>)/,/^(?:>=)/,/^(?:<=)/,/^(?:>)/,/^(?:<)/,/^(?:==)/,/^(?:=)/,/^(?:;)/,/^(?:\{)/,/^(?:\})/,/^(?:\()/,/^(?:\))/,/^(?:,)/,/^(?:#)/,/^(?:return\b)/,/^(?:cin\b)/,/^(?:cout\b)/,/^(?:endl\b)/,/^(?:int\b)/,/^(?:double\b)/,/^(?:char\b)/,/^(?:bool\b)/,/^(?:string\b)/,/^(?:void\b)/,/^(?:include\b)/,/^(?:using\b)/,/^(?:namespace\b)/,/^(?:std\b)/,/^(?:if\b)/,/^(?:else\b)/,/^(?:while\b)/,/^(?:for\b)/,/^(?:true|false\b)/,/^(?:[0-9]+(\.[0-9]+)\b)/,/^(?:([1-9][0-9]*|0))/,/^(?:'([^\\\']|\\.)')/,/^(?:"([^\\\"]|\\.)*")/,/^(?:([a-z]|[A-Z]|_)([a-z]|[A-Z]|_|[0-9])*)/,/^(?:$)/,/^(?:.)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59],"inclusive":true}}
+rules: [/^(?:\/\/.*)/,/^(?:\/\*(.|\n|\r)*?\*\/)/,/^(?:\s+)/,/^(?:\+\+)/,/^(?:--)/,/^(?:\+=)/,/^(?:-=)/,/^(?:\*=)/,/^(?:\/=)/,/^(?:%=)/,/^(?:\*)/,/^(?:\/)/,/^(?:-)/,/^(?:%)/,/^(?:\+)/,/^(?:!=)/,/^(?:or\b)/,/^(?:and\b)/,/^(?:not\b)/,/^(?:\|\|)/,/^(?:&&)/,/^(?:!)/,/^(?:<<)/,/^(?:>>)/,/^(?:>=)/,/^(?:<=)/,/^(?:>)/,/^(?:<)/,/^(?:==)/,/^(?:=)/,/^(?:;)/,/^(?:\{)/,/^(?:\})/,/^(?:\()/,/^(?:\))/,/^(?:,)/,/^(?:#)/,/^(?:return\b)/,/^(?:cin\b)/,/^(?:cout\b)/,/^(?:endl\b)/,/^(?:int\b)/,/^(?:double\b)/,/^(?:char\b)/,/^(?:bool\b)/,/^(?:string\b)/,/^(?:void\b)/,/^(?:include\b)/,/^(?:using\b)/,/^(?:namespace\b)/,/^(?:std\b)/,/^(?:if\b)/,/^(?:else\b)/,/^(?:while\b)/,/^(?:for\b)/,/^(?:true|false\b)/,/^(?:[0-9]+(\.[0-9]+)\b)/,/^(?:([1-9][0-9]*|0))/,/^(?:'([^\\\']|\\.)')/,/^(?:"([^\\\"]|\\.)*")/,/^(?:([a-z]|[A-Z]|_)([a-z]|[A-Z]|_|[0-9])*)/,/^(?:$)/,/^(?:.)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62],"inclusive":true}}
 });
 return lexer;
 })();
