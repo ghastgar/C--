@@ -181,6 +181,6 @@ samplePrograms =
     test:
         """
             int main() {
-                
+
             }
         """
