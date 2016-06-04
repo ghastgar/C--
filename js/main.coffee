@@ -2,6 +2,7 @@ $ -> # Equivalent to $(document).ready(function() {...})
     # Place the code editor
     codeMirror = CodeMirror(((elt) -> $("#code").replaceWith(elt)),
         {
+            mode: "text/x-c++src"
             value: samplePrograms.default
             theme: "material"
         }

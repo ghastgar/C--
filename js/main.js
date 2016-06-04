@@ -7,6 +7,7 @@
     codeMirror = CodeMirror((function(elt) {
       return $("#code").replaceWith(elt);
     }), {
+      mode: "text/x-c++src",
       value: samplePrograms["default"],
       theme: "material"
     });
