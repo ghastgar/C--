@@ -98,3 +98,89 @@ samplePrograms =
             	hanoi(ndiscos, 'A', 'C', 'B');
             }
         """
+    rombes:
+        """
+            #include <iostream>
+            using namespace std;
+
+            int main() {
+            	int x;
+            	cin >> x;
+            	for (int i = 1; i <= x; ++i) {
+            		for (int j = 0; j < x + i - 1; ++j) {
+            			if (j < x - i) cout << ' ';
+            			else cout << '*';
+            		}
+            		cout << endl;
+            	}
+            	for (int i = 1; i < x; ++i) {
+            		for (int j = 0; j < 2*x - i - 1; ++j) {
+            			if (j >= i) cout << '*';
+            			else cout << ' ';
+            		}
+            		cout << endl;
+            	}
+            }
+        """
+    escacs:
+        """
+            #include <iostream>
+            using namespace std;
+
+            int main() {
+            	int n;
+            	cin >> n;
+            	int suma = 0;
+            	for (int i = 0; i < n; ++i) {
+            		for (int j = 0; j < n; ++j) {
+            			char a;
+            			cin >> a;
+            			if (j == i or j == n - i - 1) suma += a - '0';
+            		}
+            	}
+            	cout << suma << endl;
+            }
+        """
+    mcm:
+        """
+            #include <iostream>
+            using namespace std;
+
+            int mcd(int a, int b) {
+            	int r;
+            	while (b != 0) {
+            		r = a%b;
+            		a = b;
+            		b = r;
+            	}
+            	return a;
+            }
+
+            int mcm (int a, int b) {
+            	int mcm = a/mcd(a, b);
+            	return (b*mcm);
+            }
+
+
+            int main() {
+            	int x;
+            	cin >> x;
+            	while (x != 0) {
+            		int y;
+            		cin >> y;
+            		int r = y;
+            		for (int i = 1; i < x; ++i) {
+            			cin >> y;
+            			r = mcm(r, y);
+            		}
+            		cout << r << endl;
+            		cin >> x;
+            	}
+            }
+        """
+    test:
+        """
+            int main() {
+                
+            }
+        """

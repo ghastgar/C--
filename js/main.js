@@ -54,7 +54,9 @@
   samplePrograms = {
     "default": "#include <iostream>\nusing namespace std;\n\nint main() {\n\n}",
     bars: "#include <iostream>\nusing namespace std;\n\nvoid escriu_estrella(int n) {\n	if (n == 0) cout << endl;\n	else {\n		cout << '*';\n		escriu_estrella(n - 1);\n	}\n}\n\nvoid escriu_barres(int n) {\n	if (n == 1) cout << '*' << endl;\n	else {\n		escriu_estrella(n);\n		escriu_barres(n - 1);\n		escriu_barres(n - 1);\n	}\n}\n\nint main() {\n	int n;\n	cin >> n;\n	escriu_barres(n);\n}",
-    hanoi: "#include <iostream>\nusing namespace std;\n\nvoid hanoi(int n, char from, char to, char aux) {\n	if (n > 0) {\n		hanoi(n - 1, from, aux, to);\n		cout << from << \" => \" << to << endl;\n		hanoi(n - 1, aux, to, from);\n	}\n}\n\nint main() {\n	int ndiscos;\n	cin >> ndiscos;\n	hanoi(ndiscos, 'A', 'C', 'B');\n}"
+    hanoi: "#include <iostream>\nusing namespace std;\n\nvoid hanoi(int n, char from, char to, char aux) {\n	if (n > 0) {\n		hanoi(n - 1, from, aux, to);\n		cout << from << \" => \" << to << endl;\n		hanoi(n - 1, aux, to, from);\n	}\n}\n\nint main() {\n	int ndiscos;\n	cin >> ndiscos;\n	hanoi(ndiscos, 'A', 'C', 'B');\n}",
+    rombes: "#include <iostream>\nusing namespace std;\n\nint main() {\n	int x;\n	cin >> x;\n	for (int i = 1; i <= x; ++i) {\n		for (int j = 0; j < x + i - 1; ++j) {\n			if (j < x - i) cout << ' ';\n			else cout << '*';\n		}\n		cout << endl;\n	}\n	for (int i = 1; i < x; ++i) {\n		for (int j = 0; j < 2*x - i - 1; ++j) {\n			if (j >= i) cout << '*';\n			else cout << ' ';\n		}\n		cout << endl;\n	}\n}",
+    escacs: "#include <iostream>\nusing namespace std;\n\nint main() {\n	int n;\n	cin >> n;\n	int suma = 0;\n	for (int i = 0; i < n; ++i) {\n		for (int j = 0; j < n; ++j) {\n			char a;\n			cin >> a;\n			if (j == i or j == n - i - 1) suma += a - '0';\n		}\n	}\n	cout << suma << endl;\n}"
   };
 
 }).call(this);
