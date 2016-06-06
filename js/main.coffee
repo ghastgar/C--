@@ -157,8 +157,8 @@ samplePrograms =
             }
 
             int mcm (int a, int b) {
-            	int mcm = a/mcd(a, b);
-            	return (b*mcm);
+            	int aux = a/mcd(a, b);
+            	return (b*aux);
             }
 
 
