@@ -8,7 +8,7 @@
       return $("#code").replaceWith(elt);
     }), {
       mode: "text/x-c++src",
-      value: samplePrograms["default"],
+      value: samplePrograms["default"].code,
       theme: "material"
     });
     w = null;
@@ -47,18 +47,36 @@
       option = $(this).text();
       data = $(this).data('value');
       $(this).parents(".dropdown").find('.btn').html(option + ' <span class="caret"></span>');
-      return codeMirror.getDoc().setValue(samplePrograms[data]);
+      codeMirror.getDoc().setValue(samplePrograms[data].code);
+      return $("#input").val(samplePrograms[data]["in"]);
     });
   });
 
   samplePrograms = {
-    "default": "#include <iostream>\nusing namespace std;\n\nint main() {\n\n}",
-    bars: "#include <iostream>\nusing namespace std;\n\nvoid escriu_estrella(int n) {\n	if (n == 0) cout << endl;\n	else {\n		cout << '*';\n		escriu_estrella(n - 1);\n	}\n}\n\nvoid escriu_barres(int n) {\n	if (n == 1) cout << '*' << endl;\n	else {\n		escriu_estrella(n);\n		escriu_barres(n - 1);\n		escriu_barres(n - 1);\n	}\n}\n\nint main() {\n	int n;\n	cin >> n;\n	escriu_barres(n);\n}",
-    hanoi: "#include <iostream>\nusing namespace std;\n\nvoid hanoi(int n, char from, char to, char aux) {\n	if (n > 0) {\n		hanoi(n - 1, from, aux, to);\n		cout << from << \" => \" << to << endl;\n		hanoi(n - 1, aux, to, from);\n	}\n}\n\nint main() {\n	int ndiscos;\n	cin >> ndiscos;\n	hanoi(ndiscos, 'A', 'C', 'B');\n}",
-    rombes: "#include <iostream>\nusing namespace std;\n\nint main() {\n	int x;\n	cin >> x;\n	for (int i = 1; i <= x; ++i) {\n		for (int j = 0; j < x + i - 1; ++j) {\n			if (j < x - i) cout << ' ';\n			else cout << '*';\n		}\n		cout << endl;\n	}\n	for (int i = 1; i < x; ++i) {\n		for (int j = 0; j < 2*x - i - 1; ++j) {\n			if (j >= i) cout << '*';\n			else cout << ' ';\n		}\n		cout << endl;\n	}\n}",
-    escacs: "#include <iostream>\nusing namespace std;\n\nint main() {\n	int n;\n	cin >> n;\n	int suma = 0;\n	for (int i = 0; i < n; ++i) {\n		for (int j = 0; j < n; ++j) {\n			char a;\n			cin >> a;\n			if (j == i or j == n - i - 1) suma += a - '0';\n		}\n	}\n	cout << suma << endl;\n}",
-    mcm: "#include <iostream>\nusing namespace std;\n\nint mcd(int a, int b) {\n	int r;\n	while (b != 0) {\n		r = a%b;\n		a = b;\n		b = r;\n	}\n	return a;\n}\n\nint mcm (int a, int b) {\n	int aux = a/mcd(a, b);\n	return (b*aux);\n}\n\n\nint main() {\n	int x;\n	cin >> x;\n	while (x != 0) {\n		int y;\n		cin >> y;\n		int r = y;\n		for (int i = 1; i < x; ++i) {\n			cin >> y;\n			r = mcm(r, y);\n		}\n		cout << r << endl;\n		cin >> x;\n	}\n}",
-    test: "int main() {\n\n}"
+    "default": {
+      code: "#include <iostream>\nusing namespace std;\n\nint main() {\n\n}",
+      "in": ""
+    },
+    bars: {
+      code: "#include <iostream>\nusing namespace std;\n\nvoid escriu_estrella(int n) {\n    if (n == 0) cout << endl;\n    else {\n        cout << '*';\n        escriu_estrella(n - 1);\n    }\n}\n\nvoid escriu_barres(int n) {\n    if (n == 1) cout << '*' << endl;\n    else {\n        escriu_estrella(n);\n        escriu_barres(n - 1);\n        escriu_barres(n - 1);\n    }\n}\n\nint main() {\n    int n;\n    cin >> n;\n    escriu_barres(n);\n}",
+      "in": "4"
+    },
+    hanoi: {
+      code: "#include <iostream>\nusing namespace std;\n\nvoid hanoi(int n, char from, char to, char aux) {\n    if (n > 0) {\n        hanoi(n - 1, from, aux, to);\n        cout << from << \" => \" << to << endl;\n        hanoi(n - 1, aux, to, from);\n    }\n}\n\nint main() {\n    int ndiscos;\n    cin >> ndiscos;\n    hanoi(ndiscos, 'A', 'C', 'B');\n}",
+      "in": "8"
+    },
+    rombes: {
+      code: "#include <iostream>\nusing namespace std;\n\nint main() {\n    int x;\n    cin >> x;\n    for (int i = 1; i <= x; ++i) {\n        for (int j = 0; j < x + i - 1; ++j) {\n            if (j < x - i) cout << ' ';\n            else cout << '*';\n        }\n        cout << endl;\n    }\n    for (int i = 1; i < x; ++i) {\n        for (int j = 0; j < 2*x - i - 1; ++j) {\n            if (j >= i) cout << '*';\n            else cout << ' ';\n        }\n        cout << endl;\n    }\n}",
+      "in": "9"
+    },
+    escacs: {
+      code: "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    int suma = 0;\n    for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < n; ++j) {\n            char a;\n            cin >> a;\n            if (j == i or j == n - i - 1) suma += a - '0';\n        }\n    }\n    cout << suma << endl;\n}",
+      "in": "3 975 123 450"
+    },
+    gcd: {
+      code: "// P67723_en: Greatest common divisor\n// Pre: two strictly positive natural numbers a and b\n// Post: the greatest common divisor of a and b\n\n#include<iostream>\n\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    int a0 = a;     //we need to keep the value of the original a and b\n    int b0 = b;\n\n    while ( b != 0) {\n        int r = a%b;  //remainder\n        a = b;\n        b = r;\n    }\n    cout << \"The gcd of \" << a0 << \" and \" << b0 << \" is \" << a << \".\" << endl;\n}",
+      "in": "16104 3216"
+    }
   };
 
 }).call(this);
