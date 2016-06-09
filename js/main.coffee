@@ -36,10 +36,10 @@ $ -> # Equivalent to $(document).ready(function() {...})
     $(".dropdown-menu li a").click(->
         option = $(this).text()
         data = $(this).data('value')
-        $(this).parents(".dropdown").find('.btn').html(option + ' <span class="caret"></span>');
-        codeMirror.getDoc().setValue(samplePrograms[data].code);
-        $("#input").val(samplePrograms[data].in);
-    );
+        $(this).parents(".dropdown").find('.btn').html(option + ' <span class="caret"></span>')
+        codeMirror.getDoc().setValue(samplePrograms[data].code)
+        $("#input").val(samplePrograms[data].in)
+    )
 
 # Name the entries after the data-value attribute
 samplePrograms =
